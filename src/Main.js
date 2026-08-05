@@ -1,15 +1,17 @@
-import { useState, useReducer } from 'react';
+/* global fetchAPI */
+import { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import BookingPage from './BookingPage';
 
 export const initializeTimes = () => {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  const today = new Date();
+  return fetchAPI(today);
 };
 
 export const updateTimes = (state, action) => {
-  // For now, return the same times regardless of the selected date
-  return initializeTimes();
+  const selectedDate = new Date(action);
+  return fetchAPI(selectedDate);
 };
 
 function Main() {
