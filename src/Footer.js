@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <div>Little Lemon</div>
+      <h2>Little Lemon</h2>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>

@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Markazi+Text:wght@400;500&display=swap');
+
+:root {
+  --color-primary-green: #495E57;
+  --color-primary-yellow: #F4CE14;
+  --color-secondary-peach: #EE9972;
+  --color-secondary-light-peach: #FBDABB;
+  --color-secondary-offwhite: #EDEFEE;
+  --color-secondary-charcoal: #333333;
+  --font-display: 'Markazi Text', serif;
+  --font-body: 'Karla', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-secondary-charcoal);
+  margin: 0 0 0.5rem 0;
+}
+
+h1 { font-size: 64px; font-weight: 500; line-height: 1.1; }
+h2 { font-size: 40px; font-weight: 400; line-height: 1.2; }
+h3 { font-size: 32px; font-weight: 400; }
+h4 { font-family: var(--font-body); font-size: 18px; font-weight: 700; }
+h5 { font-family: var(--font-body); font-size: 16px; font-weight: 700; }
+h6 { font-family: var(--font-body); font-size: 14px; font-weight: 700; }
+
+p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-secondary-charcoal);
+  max-width: 65ch;
+  margin: 0 0 1rem 0;
+}
+
+span {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-primary-green);
+}
+
+nav {
+  background-color: var(--color-secondary-offwhite);
+}
+
+nav a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-secondary-charcoal);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: var(--color-primary-yellow);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -31,6 +99,31 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+}
+
+footer {
+  background-color: var(--color-primary-green);
+  color: var(--color-secondary-offwhite);
+}
+
+footer h2 {
+  color: var(--color-primary-yellow);
+}
+
+footer p {
+  color: var(--color-secondary-offwhite);
+}
+
+footer nav {
+  background-color: transparent;
+}
+
+footer nav a {
+  color: var(--color-secondary-offwhite);
+}
+
+footer a {
+  color: var(--color-secondary-offwhite);
 }
 
 /* Responsive: stack nav vertically on small screens */
