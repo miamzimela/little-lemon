@@ -1,6 +1,44 @@
-# Getting Started with Create React App
+# 🍋 Little Lemon Restaurant Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Little Lemon is a modern, responsive web application designed for a family-owned Mediterranean restaurant located in Chicago. Built with React, this application features full table reservation capabilities, dynamic menu specials, user reviews, and comprehensive form validation.
+
+---
+
+## 🚀 Features
+
+- **Table Reservation System:** Interactive booking form with date, time, guest count, and occasion selection.
+- **Form Validation & State Management:** Dynamic validation ensuring form fields meet criteria before submission, backed by unit testing.
+- **Responsive Navigation:** Smooth page routing implemented with React Router (`BrowserRouter` & `MemoryRouter` testing setup).
+- **Modern Styling:** Styled using custom CSS, following an editorial layout inspired by wireframe specifications.
+- **Unit Tested:** Component test suite built with React Testing Library and Jest to guarantee reliable user interactions.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 18, JavaScript (ES6+), HTML5, CSS3
+- **Routing:** React Router v6
+- **Testing:** React Testing Library, Jest
+- **UI & Wireframing:** Figma
+
+---
+
+## ⚙️ Getting Started & Setup Instructions
+
+Follow these instructions to set up and run the project locally on your machine.
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+- **Node.js** (v14.0.0 or higher)
+- **npm** (v6.0.0 or higher)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/little-lemon.git](https://github.com/your-username/little-lemon.git)
+   cd little-lemon
 
 ## Available Scripts
 
@@ -19,52 +57,30 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+little-lemon/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── images/                # Asset storage for icons and dish photos
+│   ├── App.css                # Global and component styles
+│   ├── App.js                 # Primary application container
+│   ├── App.test.js            # Main integration test
+│   ├── BookingForm.js         # Interactive reservation form component
+│   ├── BookingForm.test.js    # Unit tests for reservation logic and validation
+│   ├── BookingPage.js         # Reservation page layout wrapper
+│   ├── CallToAction.js        # Hero section component
+│   ├── Chicago.js             # About section / owner background component
+│   ├── ConfirmedBooking.js    # Booking confirmation screen
+│   ├── CustomersSay.js        # Testimonials section component
+│   ├── Footer.js              # Footer navigation component
+│   ├── Header.js              # Navigation bar header
+│   ├── HomePage.js            # Main landing page wrapper
+│   ├── Main.js                # State management and API handling wrapper
+│   ├── Main.test.js           # Unit tests for initial states and reducers
+│   ├── Nav.js                 # Links and mobile menu navigation
+│   └── Specials.js            # Weekly highlights component
+└── README.md
