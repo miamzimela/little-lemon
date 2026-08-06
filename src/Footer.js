@@ -12,14 +12,14 @@ function Footer() {
           <li><Link to="/reservations">Reservations</Link></li>
         </ul>
       </nav>
-      <div>
+      <address>
         <p>123 Chicago Ave, Chicago, IL</p>
         <p>Open daily: 5pm - 11pm</p>
-      </div>
+      </address>
       <div>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">Twitter</a>
+        <a href="#" aria-label="Visit our Facebook page">Facebook</a>
+        <a href="#" aria-label="Visit our Instagram page">Instagram</a>
+        <a href="#" aria-label="Visit our Twitter page">Twitter</a>
       </div>
     </footer>
   );

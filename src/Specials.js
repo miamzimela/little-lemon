@@ -25,12 +25,12 @@ function Specials() {
       <h2>Specials</h2>
       <div className="specials-cards">
         {specialsData.map((item) => (
-          <div className="specials-card" key={item.id}>
+          <article className="specials-card" key={item.id}>
             <h4>{item.name}</h4>
             <span>{item.price}</span>
             <p>{item.description}</p>
             <p>Order a Delivery</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>

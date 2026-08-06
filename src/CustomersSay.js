@@ -11,11 +11,11 @@ function CustomersSay() {
       <h2>Testimonials</h2>
       <div className="testimonial-cards">
         {testimonials.map((t) => (
-          <div className="testimonial-card" key={t.id}>
+          <article className="testimonial-card" key={t.id}>
             <span>{t.rating}</span>
             <h5>{t.name}</h5>
             <p>{t.comment}</p>
-          </div>
+          </article>
         ))}
       </div>
     </section>
