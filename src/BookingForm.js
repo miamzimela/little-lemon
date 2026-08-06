@@ -1,10 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState(availableTimes[0]);
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const today = new Date().toISOString().split('T')[0];
+
+  useEffect(() => {
+    const guestsNumber = Number(guests);
+    const valid =
+      date !== '' &&
+      time !== '' &&
+      occasion !== '' &&
+      guestsNumber >= 1 &&
+      guestsNumber <= 10;
+    setIsFormValid(valid);
+  }, [date, time, guests, occasion]);
 
   const handleDateChange = (e) => {
     const newDate = e.target.value;
@@ -28,6 +42,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         type="date"
         id="res-date"
         value={date}
+        min={today}
+        required
         onChange={handleDateChange}
       />
 
@@ -35,6 +51,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <select
         id="res-time"
         value={time}
+        required
         onChange={(e) => setTime(e.target.value)}
       >
         {availableTimes.map((t) => (
@@ -50,6 +67,7 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         max="10"
         id="guests"
         value={guests}
+        required
         onChange={(e) => setGuests(e.target.value)}
       />
 
@@ -57,13 +75,18 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
       <select
         id="occasion"
         value={occasion}
+        required
         onChange={(e) => setOccasion(e.target.value)}
       >
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input
+        type="submit"
+        value="Make Your reservation"
+        disabled={!isFormValid}
+      />
     </form>
   );
 }
