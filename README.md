@@ -57,9 +57,9 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Project Structure
+## 📂 Project Structure
 
-
+```text
 little-lemon/
 ├── public/
 │   ├── index.html
@@ -84,3 +84,4 @@ little-lemon/
 │   ├── Nav.js                 # Links and mobile menu navigation
 │   └── Specials.js            # Weekly highlights component
 └── README.md
+```
