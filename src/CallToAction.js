@@ -1,3 +1,5 @@
+import heroImage from './images/restauranfood.jpg';
+
 function CallToAction() {
   return (
     <section className="call-to-action">
@@ -7,6 +9,7 @@ function CallToAction() {
         <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
         <button aria-label="On Click">Reserve a Table</button>
       </div>
+      <img src={heroImage} alt="Little Lemon signature dish" className="cta-image" />
     </section>
   );
 }

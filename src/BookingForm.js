@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [date, setDate] = useState('');
@@ -6,35 +7,47 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
   const [isFormValid, setIsFormValid] = useState(false);
+  const [validationMessages, setValidationMessages] = useState([]);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   const today = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
     const guestsNumber = Number(guests);
-    const valid =
-      date !== '' &&
-      time !== '' &&
-      occasion !== '' &&
-      guestsNumber >= 1 &&
-      guestsNumber <= 10;
-    setIsFormValid(valid);
+    const messages = [];
+
+    if (date === '') messages.push('Please choose a date.');
+    if (time === '') messages.push('Please choose a time.');
+    if (occasion === '') messages.push('Please choose an occasion.');
+    if (guestsNumber < 1 || guestsNumber > 10) {
+      messages.push('Number of guests must be between 1 and 10.');
+    }
+
+    setValidationMessages(messages);
+    setIsFormValid(messages.length === 0);
   }, [date, time, guests, occasion]);
 
   const handleDateChange = (e) => {
     const newDate = e.target.value;
     setDate(newDate);
     dispatch(newDate);
+    setStatusMessage(`Available times updated for ${newDate}.`);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitError('');
     const formData = { date, time, guests, occasion };
-    submitForm(formData);
+    const success = submitForm(formData);
+    if (!success) {
+      setSubmitError('We could not complete your reservation. Please check your details and try again.');
+    }
   };
 
   return (
     <form
-      style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
+      style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}
       onSubmit={handleSubmit}
     >
       <label htmlFor="res-date">Choose date</label>
@@ -82,11 +95,37 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         <option>Anniversary</option>
       </select>
 
-      <input
-        type="submit"
-        value="Make Your reservation"
-        disabled={!isFormValid}
-      />
+      <div aria-live="polite" className="form-status-message">
+        {statusMessage}
+      </div>
+
+      {isFormValid && (
+        <div className="booking-review">
+          <h5>Review your booking</h5>
+          <p>{date} at {time} — {guests} guest(s) for a {occasion.toLowerCase()}.</p>
+        </div>
+      )}
+
+      {!isFormValid && validationMessages.length > 0 && (
+        <ul className="validation-messages" aria-live="polite">
+          {validationMessages.map((msg) => (
+            <li key={msg}>{msg}</li>
+          ))}
+        </ul>
+      )}
+
+      {submitError && (
+        <p className="submit-error" role="alert">{submitError}</p>
+      )}
+
+      <div className="form-actions">
+        <input
+          type="submit"
+          value="Make Your reservation"
+          disabled={!isFormValid}
+        />
+        <Link to="/" className="cancel-link">Cancel</Link>
+      </div>
     </form>
   );
 }

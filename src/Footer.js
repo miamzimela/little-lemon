@@ -15,6 +15,7 @@ function Footer() {
       <address>
         <p>123 Chicago Ave, Chicago, IL</p>
         <p>Open daily: 5pm - 11pm</p>
+        <p>Prefer to book by phone? Call <a href="tel:+13125550199">(312) 555-0199</a></p>
       </address>
       <div>
         <a href="#" aria-label="Visit our Facebook page">Facebook</a>

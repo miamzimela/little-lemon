@@ -24,6 +24,7 @@ function Main() {
     if (success) {
       navigate('/confirmed');
     }
+    return success;
   };
 
   return (

@@ -272,3 +272,171 @@ footer a {
     align-items: center;
   }
 }
+
+/* ================= Header icons & mobile menu ================= */
+header {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-logo {
+  height: 50px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+}
+
+.menu-toggle img {
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+}
+
+.basket-link {
+  display: flex;
+  align-items: center;
+}
+
+.basket-link img {
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul.nav-open {
+    display: flex;
+  }
+}
+
+/* Active nav link */
+nav a.active-link {
+  background-color: var(--color-primary-yellow);
+  font-weight: 700;
+}
+
+/* ================= Hero image ================= */
+.call-to-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.cta-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.cta-image {
+  flex: 1;
+  min-width: 260px;
+  max-width: 400px;
+}
+
+/* ================= Specials card images ================= */
+.specials-card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+
+/* ================= Chicago / About section ================= */
+.chicago {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+}
+
+.chicago-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.chicago-image {
+  flex: 1;
+  min-width: 220px;
+  max-width: 350px;
+}
+
+/* ================= Testimonial avatars ================= */
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary-green);
+  color: var(--color-secondary-offwhite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin: 0 auto 0.5rem auto;
+}
+
+/* ================= Booking form extras ================= */
+.form-status-message {
+  font-size: 14px;
+  color: var(--color-primary-green);
+  min-height: 1.2em;
+}
+
+.validation-messages {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--color-secondary-charcoal);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.booking-review {
+  background-color: var(--color-secondary-offwhite);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.booking-review h5 {
+  margin-bottom: 0.25rem;
+}
+
+.submit-error {
+  color: #B00020;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cancel-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-secondary-charcoal);
+  text-decoration: underline;
+}

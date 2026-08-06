@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import BookingForm from './BookingForm';
 
 const mockAvailableTimes = ['17:00', '18:00', '19:00'];
@@ -7,11 +8,13 @@ const mockSubmitForm = () => {};
 
 test('Renders the "Choose date" label', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const labelElement = screen.getByText("Choose date");
   expect(labelElement).toBeInTheDocument();
@@ -19,11 +22,13 @@ test('Renders the "Choose date" label', () => {
 
 test('Date input is required and has a min date set', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const dateInput = screen.getByLabelText("Choose date");
   expect(dateInput).toBeRequired();
@@ -32,11 +37,13 @@ test('Date input is required and has a min date set', () => {
 
 test('Time select is required', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const timeSelect = screen.getByLabelText("Choose time");
   expect(timeSelect).toBeRequired();
@@ -44,11 +51,13 @@ test('Time select is required', () => {
 
 test('Guests input is required with min 1 and max 10', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const guestsInput = screen.getByLabelText("Number of guests");
   expect(guestsInput).toBeRequired();
@@ -58,11 +67,13 @@ test('Guests input is required with min 1 and max 10', () => {
 
 test('Occasion select is required', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const occasionSelect = screen.getByLabelText("Occasion");
   expect(occasionSelect).toBeRequired();
@@ -70,11 +81,13 @@ test('Occasion select is required', () => {
 
 test('Submit button is disabled when the date field is empty (invalid state)', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
   const submitButton = screen.getByDisplayValue("Make Your reservation");
   expect(submitButton).toBeDisabled();
@@ -82,11 +95,13 @@ test('Submit button is disabled when the date field is empty (invalid state)', (
 
 test('Submit button becomes enabled when all fields are valid', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
 
   const dateInput = screen.getByLabelText("Choose date");
@@ -101,11 +116,13 @@ test('Submit button becomes enabled when all fields are valid', () => {
 
 test('Submit button becomes disabled again if guests is set outside the valid range', () => {
   render(
-    <BookingForm
-      availableTimes={mockAvailableTimes}
-      dispatch={mockDispatch}
-      submitForm={mockSubmitForm}
-    />
+    <MemoryRouter>
+      <BookingForm
+        availableTimes={mockAvailableTimes}
+        dispatch={mockDispatch}
+        submitForm={mockSubmitForm}
+      />
+    </MemoryRouter>
   );
 
   const dateInput = screen.getByLabelText("Choose date");

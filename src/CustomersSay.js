@@ -12,6 +12,9 @@ function CustomersSay() {
       <div className="testimonial-cards">
         {testimonials.map((t) => (
           <article className="testimonial-card" key={t.id}>
+            <div className="testimonial-avatar" aria-hidden="true">
+              {t.name.charAt(0)}
+            </div>
             <span>{t.rating}</span>
             <h5>{t.name}</h5>
             <p>{t.comment}</p>

@@ -1,15 +1,30 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function Nav() {
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/menu', label: 'Menu' },
+  { to: '/reservations', label: 'Reservations' },
+  { to: '/order', label: 'Order Online' },
+  { to: '/login', label: 'Login' },
+];
+
+function Nav({ menuOpen }) {
+  const location = useLocation();
+
   return (
     <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/menu">Menu</Link></li>
-        <li><Link to="/reservations">Reservations</Link></li>
-        <li><Link to="/order">Order Online</Link></li>
-        <li><Link to="/login">Login</Link></li>
+      <ul className={menuOpen ? 'nav-open' : ''}>
+        {navLinks.map((link) => (
+          <li key={link.to}>
+            <Link
+              to={link.to}
+              className={location.pathname === link.to ? 'active-link' : ''}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
